@@ -1,6 +1,6 @@
 ## Calculus CLI
 
-A CLI app to evaluate derivatives, definite integrals, and the average value over a given integral. *Note that any variables must be enclosed within parentheses, separate of any coefficients.*
+A CLI app to evaluate derivatives and definite integrals. *Note that any variables must be enclosed within parentheses, separate of any coefficients.*
 <br />
 ## Overview Of Commands
 - `-e`: The expression to evaluate (e.g. "3(x^3)+4(x)+5")
