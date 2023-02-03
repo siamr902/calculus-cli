@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	clc "github.com/TheDemx27/calculus"
 	"log"
 	"math/rand"
 	"regexp"
 	"time"
+	"github.com/siamr902/calculus-cli/derivative"
+	"github.com/siamr902/calculus-cli/integral"
 )
 
 func main() {
@@ -34,26 +35,10 @@ func main() {
 
 	switch *mode {
 	case "derivative":
-		ans := evaluateDerivative(equation, diffPoint)
+		ans := derivative.EvaluateDerivative(equation, diffPoint)
 		fmt.Printf("The derivative at the point %v is %v", *diffPoint, ans)
 	case "integral":
-		ans := evaluateIntegral(equation, upperBound, lowerBound, averageValue)
+		ans := integral.EvaluateIntegral(equation, upperBound, lowerBound, averageValue)
 		fmt.Printf("The integral from %v to %v of the function is %v", *lowerBound, *upperBound, ans)
 	}
-}
-
-func evaluateDerivative(equation *string, point *float64) float64 {
-	f := clc.NewFunc(*equation)
-	ans := f.Diff(*point)
-	return ans
-}
-
-func evaluateIntegral(equation *string, upper *float64, lower *float64, averageValue *bool) float64 {
-	f := clc.NewFunc(*equation)
-	ans := f.AntiDiff(*lower, *upper)
-
-	if *averageValue {
-		return ans / (*upper - *lower)
-	}
-	return ans
 }
